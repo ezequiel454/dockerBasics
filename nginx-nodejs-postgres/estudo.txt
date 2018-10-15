@@ -1,0 +1,128 @@
+-p = publish liberar porta
+
+-d = rodar em background
+
+-v = especificar volume
+
+-P = portas disponiveis dentro da imagem, mapei para qualquer valor
+
+-e = variaveis interna
+
+docker pull x //baixar a latest
+
+docker pull x:version //baixar especificando verção
+
+docker run hello-world     //baixa e roda
+
+docker container run -p 8080:80 nginx  //rodar container 8080 porta de entrada pro mundo internamento 80
+
+docker container run -p 8080:80 "dispatch ou -d" nginx  //rodar container 8080 porta de entrada pro mundo internamento 80 em background
+
+docker images  //ver todas as imagens
+
+docker container ls //ver os container que estão rodando
+
+docker volume ls
+
+docker container stop id //para o container passando o id
+
+docker container ls -a //mostra todos os container que ja foram rodados
+
+docker container run -p 8081:80 -d --name "x" nginx // adicionar o nome x para  container sem aspa
+
+docker container rm  "id"// remove um container pelo nome ou id
+
+docker container prum REMOVE TODOS OS CONTAINERS
+
+docker rmi [option] IMAGE [IMAGE...] REMOVE TODAS AS IMAGENS
+
+docker container start id/nome //restarta o container que ja morreu
+
+docker container top id/name //mostra os processos do container
+
+docker container inspect id/name //informações do container
+
+docker image inspect id/name //informações do container
+
+docker volume inspec
+
+docker container stats //informações dos container ativos
+
+docker run -a stdin -a stdout -i -t ununtu /bin/bash
+
+docker run -it ununtu /bin/bash
+
+docker container attach id/nome
+
+dcoker container exec id "comando aqui ex git --version" //roda comandos no container que estiver rodando
+
+docker container rename CONTAINER NEW_NAME
+
+docker container commit [OPTIONS] CONTAINER [REPOSITORY[:TAG]]
+
+docker image history id/name
+
+--author , -a		Author (e.g., “John Hannibal Smith hannibal@a-team.com”)
+--change , -c		Apply Dockerfile instruction to the created image
+--message , -m		Commit message
+--pause , -p	true	Pause container during commit
+
+
+docker port CONTAINER
+
+--format pegar so o arquivo que quiser do inspect ex inspect '{{.Config.ExposedPorts}}'
+
+//projeto teste
+
+docker pull sapk/cloud9
+
+docker run -d -p 8181:8181 sapk/cloud9 --auth username:password
+
+docker run -d -v $(pwd):/workspace -p 8181:8181 sapk/cloud9 --auth username:password   //pwd é o local atual do console no windows  é  %cd%:,
+
+docker run -d -v %cd%:/workspace -p 8181:8181 sapk/cloud9 --auth 1:1
+
+docker container run -d -P -p 3000:3000
+
+se ligar no volume se for ssh é o root ao inves do wokspace do spark
+
+
+https://www.udemy.com/docker-nodejs/learn/v4/t/lecture/9901196?start=15
+
+docker run --name some-postgres -e POSTGRES_PASSWORD=mysecretpassword -d postgres
+
+
+criar volume antes pro docker no postgres (windows problems)
+
+docker volume create --name postgresql-volume -d local
+
+se tiver na pasta
+docker build -t "" .  
+
+-t nome a imagem
+
+//o comando entre "" isso vai força rodar como bash
+RUN /bin/bash -l -c ""
+
+
+docker build -t jacksonpires-banner/ubuntu-sshd:latest .
+docker container run -d -P jacksonpires/ubuntu-sshd
+docker port "container"
+
+etc -> banner no docker file web
+
+-f // usando -f apos o docker-compose vc diz o nome do arquivo que quer rodar depois up -d
+docker-compose up -d
+docker-composer down //limpa e da prune
+docker-composer stop // para e nda prune e todos pode usar o -f
+
+docker-compose up -d --scale nodejs=5  //nodejs e o nome do serviço configurado
+
+docker-compose run -d -p x:y nodejs //nodejs nome sevriço
+
+docker-compose up --build
+
+cd /workspace/     //ver o que ta fora de dentro da imagem caso tenha usado essa pasta
+
+rebeca mv
+denise tfg
